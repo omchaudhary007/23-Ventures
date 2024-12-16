@@ -16,7 +16,7 @@ const Main = () => {
       {
         clipPath: "inset(0 0% 0 0)",
         opacity: 1,
-        duration: 2,
+        duration: 1.5,
         ease: "power2.inOut",
       }
     );

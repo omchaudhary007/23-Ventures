@@ -31,13 +31,16 @@ body {
   @apply absolute inset-0 transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0 w-full h-full;
 }
 
+
+
 @media (max-width: 710px) {
-  html{
+  html {
     font-size: 60%;
   }
 }
+
 @media (max-width: 450px) {
-  html{
+  html {
     font-size: 40%;
   }
 }
