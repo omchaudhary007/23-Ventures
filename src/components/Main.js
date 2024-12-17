@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Main = () => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
       containerRef.current,
       {
@@ -20,13 +23,32 @@ const Main = () => {
         ease: "power2.inOut",
       }
     );
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: videoRef.current,
+        start: "center center",
+        end: "top 100px",
+        scrub: 1,
+      },
+    });
+
+    tl.to(videoRef.current, {
+      width: "80%",
+      padding: "0",
+      duration: 1.5,
+      ease: "power2.inOut",
+    }).to(videoRef.current, {
+      width: "100%",
+      duration: 1.5,
+      ease: "power2.inOut",
+    });
   }, []);
 
   return (
-    <main className="w-full mt-28 p-3 flex items-start justify-between">
-      <div className="mt-28 opacity-0" ref={containerRef}>
-        <h3 className="mb-3 font-cursive text-xl text-green-500">
-        Empowering Startups to Scale Faster
+    <main className="relative lightEffect w-full my-36 flex flex-col items-center gap-8">
+      <div className="p-4 opacity-0 text-center" ref={containerRef}>
+        <h3 className="w-fit mx-auto mb-10 py-1.5 px-4 rounded-full font-cursive text-green-500 bg-gray-800">
+          Empowering Startups to Scale Faster
         </h3>
         <h3 className="text-5xl font-semibold">
           Transform Your Startup Vision into{" "}
@@ -41,9 +63,14 @@ const Main = () => {
           <div className="btn-overlay bg-violet-500"></div>
         </button>
       </div>
-      <video className="relative top-0 left-0 w-1/2 h-full" autoPlay loop muted>
-        <source src="/heroVideo.mp4" type="video/mp4" />
-      </video>
+      <div
+        className="videoBox relative z-20 w-1/2  p-2 bg-black border-2 border-gray-500 rounded-lg"
+        ref={videoRef}
+      >
+        <video className="relative top-0 left-0" autoPlay loop muted>
+          <source src="/tmp.mp4" type="video/mp4" />
+        </video>
+      </div>
     </main>
   );
 };
