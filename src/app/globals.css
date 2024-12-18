@@ -9,14 +9,6 @@
   --foreground: #ffffff;
 }
 
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #090909;
-    --foreground: #ededed;
-  }
-} */
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -41,6 +33,16 @@ body {
   z-index: -10;
   box-shadow: -63px 14px 131px 64px rgba(216, 210, 216, 0.81);
 }
+
+.color-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 1px;
+  z-index: -10;
+}
+
 
 @media (max-width: 710px) {
   html {

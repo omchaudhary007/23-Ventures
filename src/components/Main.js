@@ -45,8 +45,8 @@ const Main = () => {
   }, []);
 
   return (
-    <main className="relative lightEffect w-full my-36 flex flex-col items-center gap-8">
-      <div className="p-4 opacity-0 text-center" ref={containerRef}>
+    <main className="lightEffect relative w-full my-36 flex flex-col items-center gap-8">
+      <div className=" p-4 opacity-0 text-center" ref={containerRef}>
         <h3 className="w-fit mx-auto mb-10 py-1.5 px-4 rounded-full font-cursive text-green-500 bg-gray-800">
           Empowering Startups to Scale Faster
         </h3>
@@ -71,6 +71,8 @@ const Main = () => {
           <source src="/tmp.mp4" type="video/mp4" />
         </video>
       </div>
+      {/* <Image className="rocket absolute -bottom-1 -z-10 left-20 w-20 h-20 bg-reds-500 animate-rocket" src="/rocket.gif" alt="plus" width={200} height={200} /> */}
+      {/* <Image className="rocket absolute -bottom-1 -z-10 right-20 w-20 h-20 bg-reds-500 animate-rocket -rotate-90 transformY-10" src="/rocket.gif" alt="plus" width={200} height={200} /> */}
     </main>
   );
 };

@@ -13,7 +13,6 @@ const page = () => {
       <Navbar />
       <Main />
       <Services />
-      {/* <WhyUs /> */}
     </div>
   );
 };
