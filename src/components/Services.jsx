@@ -14,10 +14,10 @@ import PointCard from "@/subcomponents/PointCard";
 const color = [
   "blue",
   "yellow",
+  "purple",
   "green",
   "red",
   "orange",
-  "purple",
   "pink",
   "aqua",
 ];
@@ -95,7 +95,7 @@ const Services = () => {
         setCurrentPointIndex((prev) => (prev + 1) % points.length);
         if (pointsContainerRef.current) {
           gsap.to(pointsContainerRef.current, {
-            y: -currentPointIndex * 240,
+            y: `${-currentPointIndex * 16}rem`,
             duration: 0.5,
             ease: "power2.out",
           });
@@ -181,9 +181,10 @@ const Services = () => {
       </h2>
 
       <div className="flex flex-col gap-20 justify-center items-center">
+        {/* 1st card */}
         <div
           ref={(el) => (cardsRef.current[0] = el)}
-          className={`card w-4/5 p-6 rounded-xl cursor-pointer transition-all overflow-hidden flex items-center justify-center gap-8`}
+          className={`card bg-black flex items-center justify-center gap-8`}
           onMouseMove={(e) => handleMouseMove(e, 0)}
           onMouseEnter={() => handleMouseEnter(0)}
           onMouseLeave={handleMouseLeave}
@@ -212,7 +213,11 @@ const Services = () => {
               Choose Twenty Three Ventures to redefine your entrepreneurial
               journey with innovation, strategy, and growth at every step.
             </p>
-            <a href="https://www.linkedin.com/company/mna-studios" target="_blank" className="inline-block mt-6 px-4 py-2 rounded-full font-semibold bg-orange-600 hover:bg-orange-700">
+            <a
+              href="https://www.linkedin.com/company/mna-studios"
+              target="_blank"
+              className="inline-block mt-6 px-4 py-2 rounded-full font-semibold bg-orange-600 hover:bg-orange-700"
+            >
               Let's Connect
             </a>
           </div>
@@ -224,6 +229,50 @@ const Services = () => {
               top: `${hoveredCard === 0 ? mousePosition.y : 0}px`,
               transition: "left 0s, top 0.3s",
               opacity: hoveredCard === 0 ? 1 : 0,
+            }}
+          ></div>
+        </div>
+
+        {/* 2nd card */}
+        <div
+          ref={(el) => (cardsRef.current[1] = el)}
+          className={`card bg-black relative text-center whitespace-nowrap lg:flex items-start justify-around gap-8`}
+          onMouseMove={(e) => handleMouseMove(e, 1)}
+          onMouseEnter={() => handleMouseEnter(1)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="lg:my-0 mb-6">
+            <h3 className="text-xl font-bold mb-4 text-gray-600">What You</h3>
+            <h3 className="text-7xl font-semibold mb-4">GIVE</h3>
+            <div className="flex items-center justify-center gap-2">
+              <p className="servicePoint">Laser focus</p>
+              <p className="servicePoint">Entrepreneurial hustle</p>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-gray-600">What You</h3>
+            <h3 className="text-7xl font-semibold mb-4">Get</h3>
+            <div className="flex items-center justify-center gap-2">
+              <span className="servicePoint">Clear Strategy</span>
+              <span className="servicePoint">Faster Growth</span>
+              <span className="servicePoint">Innovative Tools</span>
+            </div>
+            <div className="my-4 flex items-center justify-center gap-2">
+              <span className="servicePoint">Strong Network</span>
+              <span className="servicePoint">Community Support</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <span className="servicePoint">Sustainable Scaling</span>
+            </div>
+          </div>
+          <div
+            className="color-effect"
+            style={{
+              boxShadow: `-5px 10px 80px 80px ${color[1]}`,
+              left: `${hoveredCard === 1 ? mousePosition.x : 0}px`,
+              top: `${hoveredCard === 1 ? mousePosition.y : 0}px`,
+              transition: "left 0s, top 0.3s",
+              opacity: hoveredCard === 1 ? 1 : 0,
             }}
           ></div>
         </div>

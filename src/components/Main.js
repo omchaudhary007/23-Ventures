@@ -52,7 +52,7 @@ const Main = () => {
         </h3>
         <h3 className="text-5xl font-semibold">
           Transform Your Startup Vision into{" "}
-          <span className="text-blue-400">Reality</span>
+          <span className="text-yellow-500">Reality</span>
         </h3>
         <button className="btn w-fit my-4 mr-4 px-4 py-1.5 border-2 border-white rounded-tr-md rounded-bl-md group">
           <span className="relative z-10">Stories</span>
@@ -71,8 +71,6 @@ const Main = () => {
           <source src="/tmp.mp4" type="video/mp4" />
         </video>
       </div>
-      {/* <Image className="rocket absolute -bottom-1 -z-10 left-20 w-20 h-20 bg-reds-500 animate-rocket" src="/rocket.gif" alt="plus" width={200} height={200} /> */}
-      {/* <Image className="rocket absolute -bottom-1 -z-10 right-20 w-20 h-20 bg-reds-500 animate-rocket -rotate-90 transformY-10" src="/rocket.gif" alt="plus" width={200} height={200} /> */}
     </main>
   );
 };

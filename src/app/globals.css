@@ -5,12 +5,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #080808;
+  --background: #000000;
   --foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  /* background: var(--background); */
+  background: #5A3F37;
+  background: -webkit-linear-gradient(to right, #2C7744, #5A3F37);
+  background: linear-gradient(to right, #1dbf50, #5f45c5);
   color: var(--foreground);
   font-family: "IBM Plex Sans", sans-serif;
 }
@@ -21,6 +24,10 @@ body {
 
 .btn-overlay {
   @apply absolute inset-0 transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0 w-full h-full;
+}
+
+.card {
+  @apply w-4/5 p-6 rounded-xl cursor-pointer transition-all overflow-hidden;
 }
 
 .lightEffect::before {
@@ -41,6 +48,10 @@ body {
   height: 1px;
   width: 1px;
   z-index: -10;
+}
+
+.servicePoint {
+  @apply w-fit p-3 rounded-full border border-white bg-gray-900;
 }
 
 
