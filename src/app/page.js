@@ -9,7 +9,7 @@ import WhyUs from "@/components/WhyUs";
 
 const page = () => {
   return (
-    <div>
+    <div className="w-full h-[200vh]">
       <Navbar />
       <Main />
       <Services />

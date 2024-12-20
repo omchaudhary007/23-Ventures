@@ -184,7 +184,7 @@ const Services = () => {
         {/* 1st card */}
         <div
           ref={(el) => (cardsRef.current[0] = el)}
-          className={`card bg-black flex items-center justify-center gap-8`}
+          className={`card bg-lime-800 flex items-center justify-center gap-8`}
           onMouseMove={(e) => handleMouseMove(e, 0)}
           onMouseEnter={() => handleMouseEnter(0)}
           onMouseLeave={handleMouseLeave}
@@ -203,20 +203,20 @@ const Services = () => {
             ))}
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-red-600">
+            <h3 className="text-2xl font-bold mb-4">
               Why We're Your
             </h3>
-            <h3 className="text-4xl font-semibold mb-4">
+            <h3 className="text-white text-4xl font-semibold mb-4">
               Gateway to Startup Success
             </h3>
-            <p className="font-sans opacity-70">
+            <p className="text-gray-400 font-semibold font-sans">
               Choose Twenty Three Ventures to redefine your entrepreneurial
               journey with innovation, strategy, and growth at every step.
             </p>
             <a
               href="https://www.linkedin.com/company/mna-studios"
               target="_blank"
-              className="inline-block mt-6 px-4 py-2 rounded-full font-semibold bg-orange-600 hover:bg-orange-700"
+              className="btn inline-block mt-6 px-4 py-2 rounded-full font-semibold bg-orange-600 hover:bg-orange-700"
             >
               Let's Connect
             </a>
@@ -236,21 +236,21 @@ const Services = () => {
         {/* 2nd card */}
         <div
           ref={(el) => (cardsRef.current[1] = el)}
-          className={`card bg-black relative text-center whitespace-nowrap lg:flex items-start justify-around gap-8`}
+          className={`card bg-lime-800 relative text-center whitespace-nowrap lg:flex items-start justify-around gap-8`}
           onMouseMove={(e) => handleMouseMove(e, 1)}
           onMouseEnter={() => handleMouseEnter(1)}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="lg:my-0 mb-6">
-            <h3 className="text-xl font-bold mb-4 text-gray-600">What You</h3>
+          <div className="text-white lg:my-0 mb-6">
+            <h3 className="text-black text-xl font-bold mb-4">What You</h3>
             <h3 className="text-7xl font-semibold mb-4">GIVE</h3>
             <div className="flex items-center justify-center gap-2">
               <p className="servicePoint">Laser focus</p>
               <p className="servicePoint">Entrepreneurial hustle</p>
             </div>
           </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-600">What You</h3>
+          <div className="text-white">
+            <h3 className="text-black text-xl font-bold mb-4">What You</h3>
             <h3 className="text-7xl font-semibold mb-4">Get</h3>
             <div className="flex items-center justify-center gap-2">
               <span className="servicePoint">Clear Strategy</span>

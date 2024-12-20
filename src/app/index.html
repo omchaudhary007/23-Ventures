@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Earth</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+        }
+        #myelem {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="myelem"></div>
+
+    <!-- Include the latest THREE.js and GLTFLoader from a compatible CDN -->
+    <script type="module">
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+        import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/loaders/GLTFLoader.js';
+
+        // Set up the scene
+        const camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.z = 13;
+
+        const scene = new THREE.Scene();
+        let earth;
+
+        // Load the 3D model
+        const loader = new GLTFLoader();
+        loader.load('../../public/earth.glb', (gltf) => {
+            earth = gltf.scene;
+            scene.add(earth);
+            animate();
+        }, undefined, (error) => {
+            console.error('Error loading the GLTF file:', error);
+        });
+
+        // Renderer setup
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('myelem').appendChild(renderer.domElement);
+
+        // Animate the scene
+        function animate() {
+            requestAnimationFrame(animate);
+            if (earth) {
+                earth.rotation.y += 0.005; // Rotate the earth
+            }
+            renderer.render(scene, camera);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

@@ -65,7 +65,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full p-4 flex items-center fixed top-0 z-50">
-      <Logo width={4} height={4} />
+      <Logo width={3} height={3} />
       <nav className="m-auto px-4 py-1.5 flex items-center gap-4 bg-neutral-700 rounded-md">
         <Image
           className="cursor-pointer"
@@ -106,12 +106,12 @@ const Navbar = () => {
         <div className="ml-8 flex gap-2">
           <button
             ref={storyButtonRef}
-            className="hidden opacity-0 relative overflow-hidden px-4 py-1.5 bg-gray-600 rounded-md group transition-all duration-300"
+            className="btn hidden opacity-0 px-4 py-1.5 bg-gray-600 rounded-md group transition-all duration-300"
           >
             <span className="relative z-10">Stories</span>
             <div className="absolute inset-0 bg-violet-500 transform -translate-x-full transition-all duration-300 ease-in-out group-hover:translate-x-0 w-full h-full"></div>
           </button>
-          <button className="relative overflow-hidden px-4 py-1.5 bg-orangishRed rounded-md group">
+          <button className="btn px-4 py-1.5 bg-orangishRed rounded-md group">
             <span className="relative z-10">Contact</span>
             <div className="absolute inset-0 bg-violet-500 transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0 w-full h-full"></div>
           </button>

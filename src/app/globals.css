@@ -5,21 +5,20 @@
 @tailwind utilities;
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --background: #19f63e;
+  --foreground: #000000;
+  --heading: #000000;
 }
 
 body {
-  /* background: var(--background); */
-  background: #5A3F37;
-  background: -webkit-linear-gradient(to right, #2C7744, #5A3F37);
-  background: linear-gradient(to right, #1dbf50, #5f45c5);
+  background: var(--background);
+  background:linear-gradient(90deg,#2e5725 0%,#71a334 100%);
   color: var(--foreground);
   font-family: "IBM Plex Sans", sans-serif;
 }
 
 .btn {
-  @apply relative overflow-hidden;
+  @apply relative overflow-hidden text-white;
 }
 
 .btn-overlay {

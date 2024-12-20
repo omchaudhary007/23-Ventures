@@ -47,12 +47,12 @@ const Main = () => {
   return (
     <main className="lightEffect relative w-full my-36 flex flex-col items-center gap-8">
       <div className=" p-4 opacity-0 text-center" ref={containerRef}>
-        <h3 className="w-fit mx-auto mb-10 py-1.5 px-4 rounded-full font-cursive text-green-500 bg-gray-800">
+        <h3 className="w-fit mx-auto mb-10 py-1.5 px-4 rounded-full font-cursive text-orange-500 bg-gray-800">
           Empowering Startups to Scale Faster
         </h3>
         <h3 className="text-5xl font-semibold">
           Transform Your Startup Vision into{" "}
-          <span className="text-yellow-500">Reality</span>
+          <span className="text-fuchsia-700">Reality</span>
         </h3>
         <button className="btn w-fit my-4 mr-4 px-4 py-1.5 border-2 border-white rounded-tr-md rounded-bl-md group">
           <span className="relative z-10">Stories</span>
