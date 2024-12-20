@@ -12,7 +12,7 @@
 
 body {
   background: var(--background);
-  background:linear-gradient(90deg,#2e5725 0%,#71a334 100%);
+  background:linear-gradient(90deg,#52ae8b 0%,#5eaf90 100%);
   color: var(--foreground);
   font-family: "IBM Plex Sans", sans-serif;
 }

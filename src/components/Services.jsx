@@ -184,7 +184,7 @@ const Services = () => {
         {/* 1st card */}
         <div
           ref={(el) => (cardsRef.current[0] = el)}
-          className={`card bg-lime-800 flex items-center justify-center gap-8`}
+          className={`card bg-[#6eb79b] flex items-center justify-center gap-8`}
           onMouseMove={(e) => handleMouseMove(e, 0)}
           onMouseEnter={() => handleMouseEnter(0)}
           onMouseLeave={handleMouseLeave}
@@ -203,13 +203,11 @@ const Services = () => {
             ))}
           </div>
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              Why We're Your
-            </h3>
+            <h3 className="text-2xl font-bold mb-4">Why We're Your</h3>
             <h3 className="text-white text-4xl font-semibold mb-4">
               Gateway to Startup Success
             </h3>
-            <p className="text-gray-400 font-semibold font-sans">
+            <p className="font-semibold font-sans opacity-70">
               Choose Twenty Three Ventures to redefine your entrepreneurial
               journey with innovation, strategy, and growth at every step.
             </p>
@@ -236,7 +234,7 @@ const Services = () => {
         {/* 2nd card */}
         <div
           ref={(el) => (cardsRef.current[1] = el)}
-          className={`card bg-lime-800 relative text-center whitespace-nowrap lg:flex items-start justify-around gap-8`}
+          className={`card bg-[#6eb79b] relative text-center whitespace-nowrap lg:flex items-start justify-around gap-8`}
           onMouseMove={(e) => handleMouseMove(e, 1)}
           onMouseEnter={() => handleMouseEnter(1)}
           onMouseLeave={handleMouseLeave}

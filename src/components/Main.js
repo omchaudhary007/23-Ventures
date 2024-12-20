@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Earth3D from "./Earth3d";
 
 const Main = () => {
   const containerRef = useRef(null);
@@ -11,16 +12,16 @@ const Main = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
-      containerRef.current,
+      ".text-center",
       {
-        clipPath: "inset(0 100% 0 0)",
+        y: -100,
         opacity: 0,
       },
       {
-        clipPath: "inset(0 0% 0 0)",
+        y: 0,
         opacity: 1,
         duration: 1.5,
-        ease: "power2.inOut",
+        ease: "power2.out",
       }
     );
     const tl = gsap.timeline({
@@ -46,6 +47,7 @@ const Main = () => {
 
   return (
     <main className="lightEffect relative w-full my-36 flex flex-col items-center gap-8">
+      <Earth3D />
       <div className=" p-4 opacity-0 text-center" ref={containerRef}>
         <h3 className="w-fit mx-auto mb-10 py-1.5 px-4 rounded-full font-cursive text-orange-500 bg-gray-800">
           Empowering Startups to Scale Faster
