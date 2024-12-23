@@ -1,8 +1,11 @@
+"use client"
+
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Earth3D from "./Earth3d";
+import { FaLightbulb, FaUsers } from "react-icons/fa";
+import { HiOutlineChartBar } from "react-icons/hi";
 
 const Main = () => {
   const containerRef = useRef(null);
@@ -14,7 +17,7 @@ const Main = () => {
     gsap.fromTo(
       ".text-center",
       {
-        y: -100,
+        y: 100, // Changed from -100 to 100 to make it come from bottom
         opacity: 0,
       },
       {
@@ -45,34 +48,50 @@ const Main = () => {
     });
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
-    <main className="lightEffect relative w-full my-36 flex flex-col items-center gap-8">
-      <Earth3D />
-      <div className=" p-4 opacity-0 text-center" ref={containerRef}>
-        <h3 className="w-fit mx-auto mb-10 py-1.5 px-4 rounded-full font-cursive text-orange-500 bg-gray-800">
+    <main id="main-section" className="w-full py-10 flex flex-col items-center gap-8">
+      <div className="p-4 opacity-0 text-center text-heading" ref={containerRef}>
+        <h3 className="w-fit mx-auto mb-6 py-1.5 px-4 rounded-full font-cursive bg-gray-800">
           Empowering Startups to Scale Faster
         </h3>
-        <h3 className="text-5xl font-semibold">
-          Transform Your Startup Vision into{" "}
-          <span className="text-fuchsia-700">Reality</span>
-        </h3>
-        <button className="btn w-fit my-4 mr-4 px-4 py-1.5 border-2 border-white rounded-tr-md rounded-bl-md group">
+        <h1 className="text-center m-auto text-7xl font-light font-fredoka">
+          Transform{" "}
+          <span className="text-5xl p-1.5 pb-0 bg-white rounded-xl text-red-500 whitespace-nowrap">
+            Your Startup
+          </span>{" "}
+          Vision into Reality
+        </h1>
+        <button 
+          onClick={() => scrollToSection('testimonial-section')}
+          className="btn w-fit mt-10 mr-4 px-4 py-1.5 border-2 border-white rounded-tr-md rounded-bl-md group"
+        >
           <span className="relative z-10">Stories</span>
           <div className="btn-overlay bg-violet-500"></div>
         </button>
-        <button className="btn w-fit px-4 py-1.5 bg-blue-500 border-2 rounded-tr-md rounded-bl-md group">
+        <button 
+          onClick={() => scrollToSection('contact-section')}
+          className="btn w-fit px-4 py-1.5 bg-lime-500 border-2 rounded-tr-md rounded-bl-md group"
+        >
           <span className="relative z-10">Contact</span>
           <div className="btn-overlay bg-violet-500"></div>
         </button>
       </div>
-      <div
-        className="videoBox relative z-20 w-1/2  p-2 bg-black border-2 border-gray-500 rounded-lg"
+      <video
         ref={videoRef}
+        className="relative top-0 left-0 w-1/2 p-2 bg-black border-2 border-gray-500 rounded-lg m-auto"
+        autoPlay
+        loop
+        muted
       >
-        <video className="relative top-0 left-0" autoPlay loop muted>
-          <source src="/tmp.mp4" type="video/mp4" />
-        </video>
-      </div>
+        <source src="/tmp.mp4" type="video/mp4" />
+      </video>
     </main>
   );
 };

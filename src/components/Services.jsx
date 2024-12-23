@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
@@ -13,7 +15,7 @@ import PointCard from "@/subcomponents/PointCard";
 
 const color = [
   "blue",
-  "yellow",
+  "yellow", 
   "purple",
   "green",
   "red",
@@ -53,6 +55,18 @@ const points = [
       "Join a collaborative ecosystem where startups thrive, innovate, and succeed together.",
     icon: <FaHandshake size={24} color={color[5]} />,
   },
+  {
+    title: "Empowering ideas with innovation",
+    description:
+      "Craft your unique AI and Web3 journey with tailored strategies and expert mentorship.",
+    icon: <FaLightbulb size={24} color={color[1]} />,
+  },
+  {
+    title: "Empowering ideas with innovation",
+    description:
+      "Craft your unique AI and Web3 journey with tailored strategies and expert mentorship.",
+    icon: <FaLightbulb size={24} color={color[1]} />,
+  },
 ];
 
 const Services = () => {
@@ -65,26 +79,24 @@ const Services = () => {
   const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {
-    if (window) {
-      gsap.registerPlugin(ScrollTrigger);
-    }
-    gsap.fromTo(
-      ".services-heading",
+    gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.fromTo(".services-heading",
       {
         y: -100,
-        opacity: 0,
-        rotationX: 90,
+        opacity: 0
       },
       {
         y: 0,
         opacity: 1,
-        rotationX: 0,
-        duration: 1.5,
-        ease: "elastic.out(1, 0.3)",
+        duration: 2,
         scrollTrigger: {
           trigger: ".services-heading",
-          start: "top center+=100",
-        },
+          start: "center center", 
+          end: "bottom center",
+          scrub: 1,
+          toggleActions: "play none none reverse" 
+        }
       }
     );
   }, []);
@@ -174,13 +186,20 @@ const Services = () => {
     }
   };
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
-    <section ref={sectionRef} className="w-full my-20 p-4">
-      <h2 className="services-heading text-4xl font-bold text-center mb-16">
+    <section id="service-section" ref={sectionRef} className="w-full my-20 p-4">
+      <h2 className="services-heading text-4xl text-heading font-bold text-center mb-16">
         Our Services
       </h2>
 
-      <div className="flex flex-col gap-20 justify-center items-center">
+      <div className="flex flex-col gap-10 justify-center items-center">
         {/* 1st card */}
         <div
           ref={(el) => (cardsRef.current[0] = el)}
@@ -204,20 +223,19 @@ const Services = () => {
           </div>
           <div>
             <h3 className="text-2xl font-bold mb-4">Why We're Your</h3>
-            <h3 className="text-white text-4xl font-semibold mb-4">
+            <h3 className="text-heading text-4xl font-semibold mb-4">
               Gateway to Startup Success
             </h3>
             <p className="font-semibold font-sans opacity-70">
               Choose Twenty Three Ventures to redefine your entrepreneurial
               journey with innovation, strategy, and growth at every step.
             </p>
-            <a
-              href="https://www.linkedin.com/company/mna-studios"
-              target="_blank"
+            <button
+              onClick={() => scrollToSection('contact-section')}
               className="btn inline-block mt-6 px-4 py-2 rounded-full font-semibold bg-orange-600 hover:bg-orange-700"
             >
               Let's Connect
-            </a>
+            </button>
           </div>
           <div
             className="color-effect"
@@ -239,27 +257,27 @@ const Services = () => {
           onMouseEnter={() => handleMouseEnter(1)}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="text-white lg:my-0 mb-6">
-            <h3 className="text-black text-xl font-bold mb-4">What You</h3>
-            <h3 className="text-7xl font-semibold mb-4">GIVE</h3>
-            <div className="flex items-center justify-center gap-2">
+          <div className="lg:my-0 mb-6">
+            <h3 className="text-xl font-bold mb-4">What You</h3>
+            <h3 className="text-heading text-7xl font-semibold mb-4">GIVE</h3>
+            <div className="text-white flex items-center justify-center gap-2">
               <p className="servicePoint">Laser focus</p>
               <p className="servicePoint">Entrepreneurial hustle</p>
             </div>
           </div>
-          <div className="text-white">
-            <h3 className="text-black text-xl font-bold mb-4">What You</h3>
-            <h3 className="text-7xl font-semibold mb-4">Get</h3>
-            <div className="flex items-center justify-center gap-2">
+          <div>
+            <h3 className="text-xl font-bold mb-4">What You</h3>
+            <h3 className="text-heading text-7xl font-semibold mb-4">Get</h3>
+            <div className="flex items-center justify-center gap-2 text-white">
               <span className="servicePoint">Clear Strategy</span>
               <span className="servicePoint">Faster Growth</span>
               <span className="servicePoint">Innovative Tools</span>
             </div>
-            <div className="my-4 flex items-center justify-center gap-2">
+            <div className="my-4 flex items-center justify-center gap-2 text-white">
               <span className="servicePoint">Strong Network</span>
               <span className="servicePoint">Community Support</span>
             </div>
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 text-white">
               <span className="servicePoint">Sustainable Scaling</span>
             </div>
           </div>

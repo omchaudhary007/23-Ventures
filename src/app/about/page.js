@@ -1,49 +1,63 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import Navbar from "@/components/Navbar";
-import Logo from "@/components/Logo";
+import Footer from "@/components/Footer";
 
-const About = () => {
+export default function About() {
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    // Reset any existing animations
+    gsap.set(textRef.current.querySelectorAll("p, h1"), {
+      opacity: 0,
+      y: 50
+    });
+    const timer = setTimeout(() => {
+      gsap.to(textRef.current.querySelectorAll("p, h1"), {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power4.out",
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []); 
+
   return (
-    <div className="min-h-screenbg-gradient-to-b from-gray-900 to-gray-800">
+    <div className="bg-gray-900">
       <Navbar />
-      
-      <main className="container mx-auto p-6 pt-28">
-        <div className="flex flex-col items-center gap-8 text-center">
-          <div className="mb-8">
-            <Logo width={12} height={12} />
-          </div>
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          <div ref={textRef}>
+            <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-12 text-center">
+              Where Vision Meets Reality
+            </h1>
 
-          <h1 className="text-5xl font-bold text-white mb-6">About Us</h1>
-          
-          <div className="max-w-2xl mx-auto space-y-6 text-gray-300">
-            <p className="text-lg leading-relaxed">
-              We are passionate about creating meaningful digital experiences that inspire and engage. Our team combines creativity with technical expertise to build innovative solutions.
-            </p>
-
-            <p className="text-lg leading-relaxed">
-              Founded with a vision to transform ideas into reality, we work closely with our clients to understand their unique needs and deliver exceptional results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-white mb-3">Our Mission</h3>
-              <p className="text-gray-400">To deliver innovative digital solutions that empower businesses and delight users.</p>
+            <div className="bg-gray-800/50 backdrop-blur-lg rounded-3xl p-8 mb-12 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+              <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                At Twenty Three Ventures, we believe that every idea holds the potential to reshape the future. We're not just another startup incubator — we're the spark that ignites the fire of innovation. Our approach is rooted in a belief that success comes not just from knowledge, but from an ecosystem where collaboration, creativity, and technology converge.
+              </p>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-white mb-3">Our Vision</h3>
-              <p className="text-gray-400">To be at the forefront of digital transformation, setting new standards in web development.</p>
+            <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 backdrop-blur-lg rounded-3xl p-8 mb-12 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+              <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                We don't follow trends; we create them. From AI to Web3, our team doesn't just consult, we co-create, side by side with visionary entrepreneurs. Through cutting-edge strategies, tailored mentorship, and a global network of thought leaders, we empower you to take your startup to heights you never imagined.
+              </p>
             </div>
 
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-white mb-3">Our Values</h3>
-              <p className="text-gray-400">Innovation, integrity, and excellence in everything we do.</p>
+            <div className="bg-gray-800/50 backdrop-blur-lg rounded-3xl p-8 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+              <p className="text-xl text-gray-300 leading-relaxed">
+                But we're not here for the short-term. We're building the future. Our community is our foundation, and together, we're not just changing industries, we're shaping the world. With Twenty Three Ventures, you're not just starting a business — you're building a legacy.
+              </p>
             </div>
           </div>
         </div>
-      </main>
+      </div>
+      <Footer />
     </div>
   );
-};
-
-export default About;
+}

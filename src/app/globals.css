@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,18 +7,23 @@
 :root {
   --background: #19f63e;
   --foreground: #000000;
-  --heading: #000000;
+  --heading: #ffffff;
 }
 
 body {
   background: var(--background);
-  background:linear-gradient(90deg,#52ae8b 0%,#5eaf90 100%);
+  background:radial-gradient(circle,#72ac96,#a0b061,#4e9e80);
   color: var(--foreground);
-  font-family: "IBM Plex Sans", sans-serif;
+}
+.font-fredoka {
+  font-family: "Fredoka", sans-serif;
+}
+.text-heading{
+  color: var(--heading);
 }
 
 .btn {
-  @apply relative overflow-hidden text-white;
+  @apply font-fredoka relative overflow-hidden text-white;
 }
 
 .btn-overlay {
@@ -26,19 +31,10 @@ body {
 }
 
 .card {
-  @apply w-4/5 p-6 rounded-xl cursor-pointer transition-all overflow-hidden;
+  @apply w-4/5 p-6 rounded-xl cursor-pointer transition-all overflow-hidden backdrop-blur-md bg-white/15 border border-white/30 shadow;
 }
 
-.lightEffect::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 60%;
-  height: 40%;
-  transform: rotate(30deg);
-  z-index: -10;
-  box-shadow: -63px 14px 131px 64px rgba(216, 210, 216, 0.81);
-}
+
 
 .color-effect {
   position: absolute;
@@ -52,7 +48,11 @@ body {
 .servicePoint {
   @apply w-fit p-3 rounded-full border border-white bg-gray-900;
 }
-
+.textBG{
+  background: url('/textBg.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 @media (max-width: 710px) {
   html {
