@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Main from "@/components/Main";
@@ -7,9 +9,10 @@ import Testinomial from "@/components/Testinomial";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+
 const page = () => {
   return (
-    <div>  
+    <div>
       <Navbar />
       <Main />
       <Services />

@@ -5,14 +5,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #19f63e;
+  --background: #0cc09d;
   --foreground: #000000;
   --heading: #ffffff;
 }
 
 body {
   background: var(--background);
-  background:radial-gradient(circle,#72ac96,#a0b061,#4e9e80);
   color: var(--foreground);
 }
 .font-fredoka {

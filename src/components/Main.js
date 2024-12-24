@@ -1,23 +1,43 @@
 "use client"
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaLightbulb, FaUsers } from "react-icons/fa";
-import { HiOutlineChartBar } from "react-icons/hi";
+import * as THREE from "three";
+import BIRDS from "vanta/dist/vanta.birds.min";
 
 const Main = () => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const videoRef = useRef(null);
-
+  const [vantaEffect, setVantaEffect] = useState(0);
+  const vantaRef = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        BIRDS({
+          el: vantaRef.current,
+          THREE: THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          backgroundColor: 0xcc09d,
+        })
+      );
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
       ".text-center",
       {
-        y: 100, // Changed from -100 to 100 to make it come from bottom
+        y: 100, 
         opacity: 0,
       },
       {
@@ -56,7 +76,7 @@ const Main = () => {
   };
 
   return (
-    <main id="main-section" className="w-full py-10 flex flex-col items-center gap-8">
+    <main ref={vantaRef} id="main-section" className="w-full py-10 flex flex-col items-center gap-8">
       <div className="p-4 opacity-0 text-center text-heading" ref={containerRef}>
         <h3 className="w-fit mx-auto mb-6 py-1.5 px-4 rounded-full font-cursive bg-gray-800">
           Empowering Startups to Scale Faster
